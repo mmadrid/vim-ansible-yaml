@@ -33,4 +33,10 @@ fun! s:SelectAnsible()
       return
     endif
   endfor
+
+  if glob("`find . -name *.cfg -maxdepth 1 -print`") =~ 'ansible\.cfg'
+    set filetype=ansible
+    return
+  endif
+
 endfun
