@@ -1,2 +1,42 @@
 snippet debug
 	debug: msg="${1:hello world!}" var=${2}
+snippet apt
+	apt:
+		name: ${1}
+		state: ${2:#latest|absent|present}
+		update_cache: ${3:#yes|no}
+snippet apt-full
+	apt:
+		dpkg_options: ${1:force-confdef,force-confold}
+		upgrade: ${2:#yes|safe|full|dist}
+		force: ${3:#yes|no}
+		name: ${4}
+		purge: ${5:#yes|no}
+		state: ${6:#latest|absent|present}
+		update_cache: ${7:#yes|no}
+		default_release: ${8}
+		cache_valid_time: ${9:false}
+		deb: ${10}
+		install_recommends: ${11:#yes|no}
+snippet apt_repository
+	apt_repository:
+		repo: ${1:# REQUIRED}
+		update_cache: ${2:#yes|no}
+		state: ${3:#absent|present}
+		validate_certs: ${4:#yes|no}
+		mode: ${5:420}
+snippet apt_key
+	apt_key:
+		keyserver: ${1}
+		url: ${2}
+		data: ${3}
+		keyring: ${4}
+		state: ${5:#absent|present}
+		file: ${6}
+		validate_certs: ${7:#yes|no}
+		id: ${8}
+snippet macports
+	macports:
+		name: ${1:# REQUIRED}
+		state: ${2:#present|absent|active|inactive}
+		update_cache: ${3:#yes|no}
